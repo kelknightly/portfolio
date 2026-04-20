@@ -26,9 +26,13 @@ It's built as a decoupled frontend — no backend, no live data. The purpose was
 
 ## How I built it
 
-Three hours of focused vibe coding in VS Code with Claude. I described the problem, the data shape (task graph, SLA thresholds, team dependencies), and the interaction model I wanted (interactive, visual, clear status indicators). Claude generated the initial structure; I iterated on the layout and logic until it looked and felt right for the intended audience.
+Three hours of focused vibe coding in VS Code with Claude. I described the problem, the data shape, and the interaction model I wanted (interactive, visual, clear status indicators). Claude generated the initial structure; I iterated on the layout and logic until it looked and felt right for the intended audience.
 
-The whole thing runs as a static frontend served via nginx in a Docker container. No API keys, no credentials, no moving parts that can break.
+The onboarding process is modelled as a **Directed Acyclic Graph (DAG)** — which is the right data structure for this kind of problem. Each task is a node. Each dependency between tasks is a directed edge: Task B cannot start until Task A is complete, and the direction is meaningful. "Acyclic" matters here because onboarding steps don't loop back on themselves — the graph has a clear start and a clear end, and every path through it moves forward. This structure makes it possible to reason about things that a flat checklist can't express: which tasks are currently unblocked, which ones are blocking others, and what the critical path to completion looks like.
+
+That last point is what makes SLA risk surfacing possible. By traversing the DAG from the current state forward, you can calculate whether the remaining path — given current blockers — can still complete within the SLA window. A task slipping on day three might not matter if it's not on the critical path. A task slipping on day three that has four downstream dependencies almost certainly does. The graph makes that visible in a way that a status field on a Jira ticket never could.
+
+The whole thing runs as a static frontend served via nginx in a Docker container. No API keys, no credentials, no moving parts that can break. The DAG is defined in the frontend data layer — which is intentional for a prototype: it makes the structure easy to inspect, modify, and discuss without needing a database or an API to change a dependency.
 
 ## How long it took
 
