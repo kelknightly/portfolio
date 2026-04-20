@@ -14,13 +14,13 @@
 
 ## The problem
 
-When contacts come in through various channels at amazee.io — forms, events, outreach responses, referrals — someone needs to evaluate them before they're formally converted into HubSpot Leads. Is this a good fit? Do we already have a relationship with this person or company? Is there enough context to pass them to Sales, or does this need more research first?
+When contacts come in through various channels at amazee.io — forms, events, outreach responses, referrals — someone needs to evaluate them before they're formally converted into HubSpot Leads. Is this a good fit? Do we already have a relationship with this person or company? Is there enough context to move them up the pipeline, or does this need more research first?
 
-This process was happening informally, often in Slack threads and spreadsheets. There was no dedicated workspace for it, no consistent criteria, and no clear handoff mechanism. Good contacts were slipping through the cracks because there was no structure around the triage step.
+This process was happening informally in HubSpot and Slack without much structure. There was no dedicated workspace for it, no consistent criteria, and no clear handoff mechanism. Good contacts were slipping through the cracks because there was no structure around the triage step and no engine to identify the best leads.
 
 ## What I built
 
-The HubSpot Sales Triage Tool is a dedicated workspace for the Growth and Outreach teams to work through incoming contacts systematically. It surfaces enriched contact data, shows existing HubSpot relationships and history, and gives the team a clear interface for making and recording triage decisions before anything enters the formal pipeline.
+The HubSpot Sales Triage Tool is a dedicated workspace for the Growth and Outreach teams to work through incoming contacts systematically. It surfaces contacts that have performed a golden interaction such as a form completion or meeting request, shows existing HubSpot relationships and history, and gives the team a clear interface for making and recording triage decisions before anything enters the formal pipeline.
 
 It's connected directly to HubSpot — contacts flow in from the CRM, decisions and notes flow back out. The goal was to make triage feel less like admin and more like focused, informed decision-making.
 

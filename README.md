@@ -2,7 +2,7 @@
 
 I'm a consultant working across internal operations, AI enablement, and systems design. Over the last couple of years I've gone from auditing a company's documentation platform and migrating them to Notion, to owning their HubSpot instance, to building and shipping custom internal tools — most of them from scratch, most of them solo, nearly all of them using a vibe coding approach with Claude and VS Code.
 
-The work here spans two main clients — amazee.io (a managed cloud hosting and professional services company) and DGXC (a fuel distribution business) — alongside a handful of personal projects I built for myself or to scratch a research itch.
+The work here spans two main clients — amazee.io (a managed cloud hosting and professional services company) and DGXC (a specialist consultancy that builds intelligent middleware) — alongside a handful of personal projects I built for myself or to scratch a research itch.
 
 I don't have a traditional software engineering background. What I do have is a strong instinct for where the friction is in a business, the ability to design and build tools that remove it, and the discipline to ship things that actually get used.
 
@@ -40,4 +40,4 @@ I'm also currently teaching this approach to the workstream leads at amazee.io, 
 
 ## Background
 
-Before I started building these tools, I spent time as a business analyst and internal systems lead — researching pain points, testing tools, and managing the migration of an entire company from Confluence to Notion (including the onboarding and training for the full team). That background shapes how I approach every project: start with the problem, not the technology.
+Before I started building these tools, I spent time as a data scientist, business analyst, managing partner of my own digital agency, and internal systems lead — researching pain points, testing tools, and managing the migration of an entire company from Confluence to Notion (including the onboarding and training for the full team) and running ongoing agentic engineering workshops at amazee.io to train different workstreams on how to bring AI to their teams. That background shapes how I approach every project: start with the problem, not the technology.
