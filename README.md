@@ -26,6 +26,7 @@ Each project has its own case study. They're written honestly — including what
 | [FuelSignal MVP](./fuelsignal-mvp.md) | DGXC | MVP / Lead gen | Fuel procurement intelligence platform |
 | [Urban Resilience Sentinel](./urban-resilience-sentinel.md) | Personal | In progress | Urban data archiving engine |
 | [Spanish Flashcards](./spanish-flashcards.md) | Personal | Live | Interactive language learning app |
+| [Crisis Storylines — Global Visualiser](./crisis-storylines-global.md) | Personal | Live | Interactive dashboard for exploring 3,158 global disaster events with maps, causal graphs, and AI-generated storylines |
 
 ### Automation & data pipelines
 
