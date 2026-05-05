@@ -59,3 +59,40 @@ I'm also currently running agentic engineering workshops at amazee.io, training 
 ## Background
 
 Before building these tools I worked as a data scientist, business analyst, and managing partner of my own digital agency. I've run documentation audits, led platform migrations, owned CRM instances, and designed the operational systems that keep teams moving. That background shapes how I approach every project: start with the problem, understand the constraints, then build the smallest thing that solves it properly.
+
+---
+
+## Tools I use
+
+**Languages**
+TypeScript, Python, JavaScript / Node.js, HTML, CSS
+
+**Frameworks & Libraries**
+Next.js, React, FastAPI, Prisma, Tailwind CSS, shadcn/ui, Recharts, React Leaflet, react-force-graph-2d
+
+**Databases**
+PostgreSQL, Supabase, Neon, LanceDB
+
+**AI & LLMs**
+Claude (Anthropic), OpenClaw, Gemini (Google), GPT-4o (OpenAI), OpenRouter, LiteLLM, promptfoo, sentence-transformers, Notion AI, HubSpot Breeze AI, sentiment analysis, retrieval-augmented generation, vector databases
+
+**CRM & Business Platforms**
+HubSpot, Notion, Jira / Jira Service Management, Slack, AmpleMarket, Zoom Revenue Accelerator
+
+**Automation & Pipelines**
+n8n, GitHub Actions, Webhooks
+
+**Data & APIs**
+GDELT, Open-Meteo, Leaf API, NewsAPI, OilPriceAPI, ICE Data, GTFS-Realtime, Google Maps / Places, Google Analytics, Matomo, Webtrekk
+
+**Dev & Deployment**
+VS Code, Cursor, Git / GitHub, Docker, Vercel, nginx
+
+**Documentation**
+Confluence, MkDocs, GitBook, Notion, Markdown
+
+**Design & Visualisation**
+Tableau, Leaflet.js, GeoJSON, Recharts, Force-directed graphs
+
+**Open Source**
+Ubuntu, OpenClaw, amazee.io/amazee.ai, Hugging Face, Llama 3.1, Next.js, React, FastAPI, Prisma, Tailwind CSS, shadcn/ui, Recharts, React Leaflet, react-force-graph-2d, n8n, promptfoo, Docker, nginx, MkDocs
