@@ -1,5 +1,7 @@
 # Portfolio
 
+#### [LinkedIn: Kelly Knight](https://www.linkedin.com/in/kelly-knight/)
+
 I'm an AI & Business Systems Analyst and Agentic Workflow Architect. My work sits at the intersection of systems thinking and hands-on building: I find where a business is losing time or working around broken processes, design the solution, and build it — whether that's a custom internal tool, an automated data pipeline, a CRM migration, or an organisation-wide documentation overhaul.
 
 The work here spans two main clients — amazee.io (a managed cloud hosting and professional services company) and DGXC (a specialist consultancy that builds intelligent middleware) — alongside a handful of personal projects I built for myself or to scratch a research itch.
