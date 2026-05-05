@@ -74,7 +74,7 @@ Next.js, React, FastAPI, Prisma, Tailwind CSS, shadcn/ui, Recharts, React Leafle
 PostgreSQL, Supabase, Neon, LanceDB
 
 **AI & LLMs**
-Claude (Anthropic), OpenClaw, Gemini (Google), GPT-4o (OpenAI), OpenRouter, LiteLLM, promptfoo, sentence-transformers, Notion AI, HubSpot Breeze AI, sentiment analysis, retrieval-augmented generation, vector databases
+Claude (Anthropic), OpenClaw, custom AI agents, Gemini (Google), GPT-4o (OpenAI), OpenRouter, LiteLLM, promptfoo, sentence-transformers, Notion AI, HubSpot Breeze AI, sentiment analysis, retrieval-augmented generation, vector databases
 
 **CRM & Business Platforms**
 HubSpot, Notion, Jira / Jira Service Management, Slack, AmpleMarket, Zoom Revenue Accelerator
