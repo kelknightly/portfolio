@@ -18,12 +18,12 @@ Each project has its own case study. They're written honestly — including what
 
 | Project | Built for | Status | What it is |
 |---|---|---|---|
-| [Support Relay](./support-relay.md) | amazee.io | In active development | AI-powered support dashboard — tickets, customer context, and drafted responses in one place |
+| [Support Relay](./support-relay/support-relay.md) | amazee.io | In active development | AI-powered support dashboard — tickets, customer context, and drafted responses in one place |
 | [HubSpot Sales Triage Tool](./hubspot-sales-triage-tool.md) | amazee.io | Live | My first vibe-coded project; daily lead prioritisation for the sales team |
 | [HubSpot Growth Dashboard](./hubspot-growth-dashboard.md) | amazee.io | Live | Deal and lead visibility for leadership |
 | [Marketing / BizDev / Sales Sync Hub](./marketing-sync-hub.md) | amazee.io | Live | Live meeting dashboard replacing static slide decks |
 | [AmpleMarket Team Hub](./amplemarket-team.md) | amazee.io | In progress | Outreach research and workflow hub |
-| [Customer Command Centre (CCC)](./ccc-jira-dashboard.md) | amazee.io | Superseded | Jira-to-customer operational dashboard |
+| [Customer Command Centre (CCC)](./ccc-jira-dashboard/ccc-jira-dashboard.md) | amazee.io | Superseded | Jira-to-customer operational dashboard |
 | [CEM Onboarding Tool](./cem-onboarding-tool.md) | amazee.io | Live prototype | Onboarding journey visualiser |
 | [FuelSignal MVP](./fuelsignal-mvp.md) | DGXC | MVP / Lead gen | Fuel procurement intelligence platform |
 | [Urban Resilience Sentinel](./urban-resilience-sentinel.md) | Personal | In progress | Urban data archiving engine |
