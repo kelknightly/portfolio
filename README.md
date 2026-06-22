@@ -23,6 +23,8 @@ Each project has its own case study. They're written honestly — including what
 | [HubSpot Growth Dashboard](./hubspot-growth-dashboard.md) | amazee.io | Live | Deal and lead visibility for leadership |
 | [Marketing / BizDev / Sales Sync Hub](./marketing-sync-hub.md) | amazee.io | Live | Live meeting dashboard replacing static slide decks |
 | [AmpleMarket Team Hub](./amplemarket-team.md) | amazee.io | In progress | Outreach research and workflow hub |
+| [Customer Slack Pulse Agent](./customer-recaps.md) | amazee.io | Live | Weekly AI-generated digest of all customer Slack channels, written to Notion and synced to HubSpot deals |
+| [User Adoption Tracker](./tracking-user-adoption.md) | amazee.io | Live | Weekly DAU/WAU/MAU metrics for internal tools, written to Notion |
 | [Customer Command Centre (CCC)](./ccc-jira-dashboard/ccc-jira-dashboard.md) | amazee.io | Superseded | Jira-to-customer operational dashboard |
 | [CEM Onboarding Tool](./cem-onboarding-tool.md) | amazee.io | Live prototype | Onboarding journey visualiser |
 | [FuelSignal MVP](./fuelsignal-mvp.md) | DGXC | MVP / Lead gen | Fuel procurement intelligence platform |
