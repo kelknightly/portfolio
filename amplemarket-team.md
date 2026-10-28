@@ -8,7 +8,7 @@
 | **Timeline** | Ongoing |
 | **Status** | Work in progress |
 | **Team** | Solo for now; intended to become a shared team resource |
-| **Stack** | Markdown, AmpleMarket MCP server |
+| **Stack** | Claude, AmpleMarket MCP server, Markdown; n8n and the HubSpot API for the reply pipeline |
 
 ---
 
@@ -29,6 +29,18 @@ A few threads running through this work:
 **Team enablement** — eventually this hub will be the starting point for any team member working with AmpleMarket. Right now it's a solo research project; the goal is to make it legible and useful to others.
 
 **Workflow and sequence design** — outreach that works requires more than a tool. It requires knowing who to reach, what to say, when to send it, and how to follow up. This is where I'm developing and testing that thinking.
+
+## What I've built so far
+
+**Claude working AmpleMarket directly.** Through the MCP server, Claude reads my lead lists and enriches leads without me exporting anything. In one test run it worked through a lead list of boutique marketing agencies:
+
+- researched each lead and wrote a one-line personalised opener
+- identified the three pain points that profile most likely shares, such as running client infrastructure without a DevOps team
+- searched AmpleMarket for five lookalike companies that weren't in any existing list, verified each one through AmpleMarket's own enrichment, and ranked them by who to approach first and why
+
+The prompts are kept in the repo so the run can be repeated on any list.
+
+**Replies flow into HubSpot.** When a prospect replies to an AmpleMarket sequence, an n8n workflow I built picks up the webhook. It keeps only genuine, actionable replies (interested, asked to circle back, forwarded to the right person) and updates the HubSpot contact with the sequence and the kind of reply. Sales sees how someone replied, not just that they did. That pipeline is described in [RevOps Automation](./amazeeio-revops-automation.md), and [Canary](./canary/canary.md) checks it each weekday.
 
 ## Where it stands now
 

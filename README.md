@@ -22,8 +22,9 @@ Each project has its own case study. They're written honestly — including what
 | [Support Relay](./support-relay/support-relay.md) | amazee.io | In active development | AI-powered support dashboard — tickets, customer context, and drafted responses in one place |
 | [HubSpot Sales Triage Tool](./hubspot-sales-triage-tool.md) | amazee.io | Live | My first vibe-coded project; daily lead prioritisation for the sales team |
 | [HubSpot Growth Dashboard](./hubspot-growth-dashboard.md) | amazee.io | Live | Deal and lead visibility for leadership |
+| [Mammoth Marketing Dashboard](./mammoth-marketing-dashboard.md) | amazee.io | Live | Marketing analytics for PLG and Enterprise: traffic, conversions, ad spend and CRM pipeline from Matomo, GA4/BigQuery, Google Ads and HubSpot, refreshed daily |
 | [Marketing / BizDev / Sales Sync Hub](./marketing-sync-hub.md) | amazee.io | Live | Live meeting dashboard replacing static slide decks |
-| [AmpleMarket Team Hub](./amplemarket-team.md) | amazee.io | In progress | Outreach research and workflow hub |
+| [AmpleMarket Team Hub](./amplemarket-team.md) | amazee.io | In progress | Outreach research and workflow hub; Claude works lead lists through AmpleMarket's MCP server, and replies flow into HubSpot |
 | [Customer Slack Pulse Agent](./customer-recaps.md) | amazee.io | Live | Weekly AI-generated digest of all customer Slack channels, written to Notion and synced to HubSpot deals |
 | [User Adoption Tracker](./tracking-user-adoption.md) | amazee.io | Live | Weekly DAU/WAU/MAU metrics for internal tools, written to Notion |
 | [Customer Command Centre (CCC)](./ccc-jira-dashboard/ccc-jira-dashboard.md) | amazee.io | Superseded | Jira-to-customer operational dashboard |
@@ -46,6 +47,7 @@ Each project has its own case study. They're written honestly — including what
 |---|---|---|---|
 | [HubSpot Instance Merger](./amazeeio-hubspot-merger.md) | amazee.io | Delivered | CRM consolidation from Amazee Labs into amazee.io without disrupting live automations |
 | [Documentation Transformation](./amazeeio-documentation.md) | amazee.io | Delivered | Full documentation strategy, platform evaluation, and migration from Confluence + MkDocs to Notion |
+| [BizDev Notion Overhaul](./bizdev-notion-overhaul.md) | amazee.io | Delivered | Zero-loss restructure of the BizDev workspace into 7 linked Notion databases, with a guarded write path, audit ledger, rollback runbook and a verifier proving nothing was lost |
 
 ---
 
