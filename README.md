@@ -18,6 +18,7 @@ Each project has its own case study. They're written honestly — including what
 
 | Project | Built for | Status | What it is |
 |---|---|---|---|
+| [Token Factory Flight Deck](./flightdeck.md) | amazee.io | Live, in active development | Air-traffic-control-style operations console for an AI inference platform on live GPU racks, with an alert "doorman" (rules first, then Jev, a small decision model) that groups alert storms before agents start, evaluated against Claude Haiku and Sonnet |
 | [Support Relay](./support-relay/support-relay.md) | amazee.io | In active development | AI-powered support dashboard — tickets, customer context, and drafted responses in one place |
 | [HubSpot Sales Triage Tool](./hubspot-sales-triage-tool.md) | amazee.io | Live | My first vibe-coded project; daily lead prioritisation for the sales team |
 | [HubSpot Growth Dashboard](./hubspot-growth-dashboard.md) | amazee.io | Live | Deal and lead visibility for leadership |
