@@ -31,6 +31,7 @@ Each project has its own case study. They're written honestly — including what
 | [CEM Onboarding Tool](./cem-onboarding-tool.md) | amazee.io | Live prototype | Onboarding journey visualiser |
 | [FuelSignal MVP](./fuelsignal-mvp.md) | DGXC | MVP / Lead gen | Fuel procurement intelligence platform |
 | [Urban Resilience Sentinel](./urban-resilience-sentinel.md) | Personal | In progress | Urban data archiving engine |
+| [The Morning Digest](./morning-digest.md) | Personal | Live; printing paused | A two-page morning newspaper of household finances and AI news, written by an open-weight model (Gemma 4) chosen after a hand-checked comparison with Qwen 3.5, built to print at 6am and published by a cloud job every morning |
 | [Spanish Flashcards](./spanish-flashcards.md) | Personal | Live | Interactive language learning app |
 | [Crisis Storylines — Global Visualiser](./crisis-storylines-global.md) | Personal | Live | Interactive dashboard for exploring 3,158 global disaster events with maps, causal graphs, and AI-generated storylines |
 | [LLM Hazard Response Equity Audit](./llm-hazard-equity-audit.md) | Personal / Research | Complete | Reproducible benchmark measuring whether 8 LLMs give worse emergency guidance to users in low-resource infrastructure contexts — 800 evaluated responses, pre-registered rubric, and a forensic record of judge hallucination caught mid-eval |
@@ -79,7 +80,7 @@ Next.js, React, FastAPI, Prisma, Tailwind CSS, shadcn/ui, Recharts, React Leafle
 PostgreSQL, Supabase, Neon, LanceDB
 
 **AI & LLMs**
-Claude (Anthropic), OpenClaw, custom AI agents, Gemini (Google), GPT-4o (OpenAI), OpenRouter, LiteLLM, promptfoo, sentence-transformers, Notion AI, HubSpot Breeze AI, sentiment analysis, retrieval-augmented generation, vector databases
+Claude (Anthropic), Claude Code scheduled tasks, OpenClaw, custom AI agents, Gemini (Google), Gemma 4 and Qwen 3.5 (open-weight, via Ollama), GPT-4o (OpenAI), OpenRouter, LiteLLM, promptfoo, sentence-transformers, Notion AI, HubSpot Breeze AI, sentiment analysis, retrieval-augmented generation, vector databases
 
 **CRM & Business Platforms**
 HubSpot, Notion, Jira / Jira Service Management, Slack, AmpleMarket, Zoom Revenue Accelerator
@@ -91,7 +92,7 @@ n8n, GitHub Actions, Webhooks
 GDELT, Open-Meteo, Leaf API, NewsAPI, OilPriceAPI, ICE Data, GTFS-Realtime, Google Maps / Places, Google Analytics, Matomo, Webtrekk
 
 **Dev & Deployment**
-VS Code, Cursor, Git / GitHub, Docker, Vercel, nginx
+VS Code, Cursor, Git / GitHub, Docker, Vercel, nginx, systemd timers, WeasyPrint, CUPS
 
 **Documentation**
 Confluence, MkDocs, GitBook, Notion, Markdown
