@@ -58,7 +58,7 @@ Each project has its own case study. They're written honestly — including what
 
 | Project | Built for | Status | What it is |
 |---|---|---|---|
-| [AI Enablement & Training](./ai-enablement.md) | amazee.io, DGXC, Mirantis | Ongoing | A self-serve Agentic Engineering knowledge base with my own recorded walkthroughs, recorded workshops and 1:1 coaching from setup to production; Prompt to Prod, a weekly AI showcase I created and facilitate; and work to open the Mirantis AI Team weekly to newcomers and women |
+| [AI Enablement & Training](./ai-enablement.md) | amazee.io, DGXC, Mirantis | Ongoing | A self-serve Agentic Engineering knowledge base with my own recorded walkthroughs; a starter kit template repo whose agent instructions enforce security, auth and deployment standards from the first prompt; recorded workshops and 1:1 coaching from setup to production; Prompt to Prod, a weekly AI showcase I created and facilitate; and work to open the Mirantis AI Team weekly to newcomers and women |
 
 ### Data visualisation (earlier work)
 
