@@ -14,7 +14,7 @@
 
 ## What this is
 
-AmpleMarket is amazee.io's outreach and sales engagement platform — a new addition to the growth tech stack. As the owner of this tool, I'm responsible for building out its workflows, integrations, and processes, and eventually for enabling the wider team to use it effectively.
+AmpleMarket is amazee.io's outreach and sales engagement platform — a new addition to the growth tech stack, chosen after the evaluation of 20 platforms described in [Sales Engagement Platform Evaluation](./sales-platform-evaluation.md). As the owner of this tool, I'm responsible for building out its workflows, integrations, and processes, and eventually for enabling the wider team to use it effectively.
 
 This repository is the working layer beneath that: research notes, ICP analysis, outreach strategy, sequence logic, and findings from the rollout so far. It's the documentation that makes the tool make sense to someone picking it up for the first time.
 

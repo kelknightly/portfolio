@@ -41,6 +41,7 @@ Each project has its own case study. They're written honestly — including what
 | Project | Built for | Status | What it is |
 |---|---|---|---|
 | [RevOps Automation](./amazeeio-revops-automation.md) | amazee.io | Live and maintained | n8n workflows and scripts connecting product signups, outbound sequences, events, and AI trials into HubSpot |
+| [Customer Conversation Insights](./customer-conversation-insights.md) | amazee.io | Delivered; ran on a schedule | Notion AI reads recorded customer meetings on a schedule and sorts them into recurring prospect questions with suggested answers for TAMs and CEMs, and content briefs for Marketing |
 
 ### Systems & operations
 
@@ -48,7 +49,29 @@ Each project has its own case study. They're written honestly — including what
 |---|---|---|---|
 | [HubSpot Instance Merger](./amazeeio-hubspot-merger.md) | amazee.io | Delivered | CRM consolidation from Amazee Labs into amazee.io without disrupting live automations |
 | [Documentation Transformation](./amazeeio-documentation.md) | amazee.io | Delivered | Full documentation strategy, platform evaluation, and migration from Confluence + MkDocs to Notion |
+| [Sales Engagement Platform Evaluation](./sales-platform-evaluation.md) | amazee.io | Delivered | 20 prospecting and outreach platforms scored on 8 criteria, then vendor calls, demos and trials, ending in Amplemarket replacing Sales Navigator and Dripify |
+| [Workstream Automations](./workstream-automation-wishlists.md) | amazee.io | Live process | Shared automation wishlists with each team, matched to the right tool: Marketing's 23-item list and a Notion → HubSpot event sync that writes the HubSpot ID back to Notion; BizOps' month-end data pulls from four Xero entities, scoped as build vs buy; and BambooHR reporting moved into a private HR dashboard in Notion |
 | [BizDev Notion Overhaul](./bizdev-notion-overhaul.md) | amazee.io | Delivered | Zero-loss restructure of the BizDev workspace into 7 linked Notion databases, with a guarded write path, audit ledger, rollback runbook and a verifier proving nothing was lost |
+
+---
+
+## MCP servers I work with
+
+MCP (Model Context Protocol) servers let an AI agent like Claude use a tool directly: read the CRM, query a database, update a page. These are the ones I've used in real work, and what for.
+
+| MCP server | What Claude does with it | Where it shows up |
+|---|---|---|
+| **AmpleMarket** | Reads my lead lists, researches and enriches each lead, writes personalised openers, and finds lookalike companies verified through AmpleMarket's own data | [AmpleMarket Team Hub](./amplemarket-team.md) |
+| **HubSpot** | Searches and queries CRM records and properties, pulls marketing email, content and campaign attribution analytics, and checks the schema before I build anything that writes to it | [HubSpot Sales Triage Tool](./hubspot-sales-triage-tool.md), CRM audits |
+| **Notion** | Searches, reads, updates and moves pages, and queries databases, so documentation and team hubs stay current without copy-and-paste | [AI Platform Operations Console](./flightdeck.md), workspace and documentation upkeep |
+| **BigQuery** | Queries the Google Analytics 4 export directly while I designed the dashboard's data pipeline | [Mammoth Marketing Dashboard](./mammoth-marketing-dashboard.md) |
+| **An internal deploy agent** | Asks for a deployment in plain words, gets a plan back, and applies it only after I approve | [AI Platform Operations Console](./flightdeck.md) |
+| **Playwright** | Drives a real browser to test the dashboards I build | [HubSpot Sales Triage Tool](./hubspot-sales-triage-tool.md), [HubSpot Growth Dashboard](./hubspot-growth-dashboard.md) |
+| **shadcn/ui** | Looks up and adds UI components from the shadcn registry | [HubSpot Sales Triage Tool](./hubspot-sales-triage-tool.md), [HubSpot Growth Dashboard](./hubspot-growth-dashboard.md) |
+| **Next.js DevTools** | Reads build errors, routes and runtime state from the running Next.js app | [HubSpot Sales Triage Tool](./hubspot-sales-triage-tool.md), [HubSpot Growth Dashboard](./hubspot-growth-dashboard.md) |
+| **Claude Docs** | Drafts and edits shared documents that people comment on | Reports and write-ups |
+
+I use them across Claude Code, Cursor and OpenCode. Where an MCP server isn't available or isn't the right fit, I call the REST API directly. The Notion, Slack and BambooHR scripts behind several projects here do exactly that.
 
 ---
 
@@ -82,8 +105,11 @@ PostgreSQL, Supabase, Neon, LanceDB
 **AI & LLMs**
 Claude (Anthropic), Claude Code scheduled tasks, OpenClaw, custom AI agents, Gemini (Google), Gemma 4 and Qwen 3.5 (open-weight, via Ollama), GPT-4o (OpenAI), OpenRouter, LiteLLM, promptfoo, sentence-transformers, Notion AI, HubSpot Breeze AI, sentiment analysis, retrieval-augmented generation, vector databases
 
+**MCP servers**
+AmpleMarket, HubSpot, Notion, BigQuery, Playwright, shadcn/ui, Next.js DevTools, Claude Docs, and an internal deploy agent
+
 **CRM & Business Platforms**
-HubSpot, Notion, Jira / Jira Service Management, Slack, AmpleMarket, Zoom Revenue Accelerator
+HubSpot, Notion, Jira / Jira Service Management, Slack, AmpleMarket, Zoom Revenue Accelerator, BambooHR
 
 **Automation & Pipelines**
 n8n, GitHub Actions, Webhooks

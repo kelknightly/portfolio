@@ -64,9 +64,11 @@ All three can be run together with `npm run sync:all`, or individually. The repo
 
 ### Sales-to-marketing AI content pipeline (Zoom Revenue Accelerator + Notion AI)
 
-A lighter-weight workflow I designed to extract signal from sales conversations for the marketing team. Sales reps download transcripts from Zoom Revenue Accelerator and add them to a Notion database along with meeting metadata. Notion AI is then prompted to read those transcripts and populate two downstream databases: one that categorises and counts the topics and questions prospects raise most often, and one that drafts high-level content briefs based on those patterns.
+A lighter-weight workflow I designed to extract signal from sales conversations for the marketing team. Sales reps download transcripts from Zoom Revenue Accelerator and add them to a Notion database along with meeting metadata. Notion AI then runs a fixed prompt on a schedule to populate two downstream databases: one that categorises and counts the topics and questions prospects raise most often, and one that drafts content briefs based on those patterns. An n8n workflow that takes transcripts straight from Zoom's recording webhook into Notion is built and tested, waiting to be connected to amazee.io's Zoom account. The full write-up is in [Customer Conversation Insights](./customer-conversation-insights.md).
 
-The transcript-to-insight synthesis is still being refined — the prompt is actively being polished — but the structural scaffolding is in place. Next step is automating the transcript download from Zoom into Notion directly, which is currently still a manual step.
+### Marketing events (Notion → HubSpot)
+
+Marketing plans events in a Notion *Event Database*. When they tick **Sync to HubSpot** on an event, a daily scheduled TypeScript job creates the matching Marketing Event in HubSpot with the same details and writes the ID into the event's **HubSpot Event ID** field, so the team can see it synced without opening HubSpot. The job is safe to re-run (each event is keyed to its Notion page), and [Canary](./canary/canary.md) flags any event still waiting for an ID after 25 hours. More in [Workstream Automations](./workstream-automation-wishlists.md#marketing-events-from-notion-to-hubspot).
 
 ## How I approach this work
 
