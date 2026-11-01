@@ -53,6 +53,17 @@ Each project has its own case study. They're written honestly — including what
 | [Workstream Automations](./workstream-automation-wishlists.md) | amazee.io | Live process | Shared automation wishlists with each team, matched to the right tool: Marketing's 23-item list and a Notion → HubSpot event sync that writes the HubSpot ID back to Notion; BizOps' month-end data pulls from four Xero entities, scoped as build vs buy; and BambooHR reporting moved into a private HR dashboard in Notion |
 | [BizDev Notion Overhaul](./bizdev-notion-overhaul.md) | amazee.io | Delivered | Zero-loss restructure of the BizDev workspace into 7 linked Notion databases, with a guarded write path, audit ledger, rollback runbook and a verifier proving nothing was lost |
 
+### Data visualisation (earlier work)
+
+Published on [Tableau Public](https://public.tableau.com/app/profile/kelly.quantrill/vizzes). Most of these come from before LLMs did this kind of work for you (the Star Trek series dates from late 2023), so the text analysis was done in Python and the data was gathered and checked by hand.
+
+| Viz | What it is |
+|---|---|
+| [Star Trek Discovery Content Analysis (Seasons 1 & 4)](https://public.tableau.com/app/profile/kelly.quantrill/viz/StarTrekDiscoveryS1S2characterwordcountWIP/Dashboard1-total) | Who gets the most dialogue: transcripts from chakoteya.net, word counts per character computed in Python, shown as a treemap you can step through by series, season and episode |
+| [Star Trek Discovery Sentiment Analysis (Season 1)](https://public.tableau.com/app/profile/kelly.quantrill/viz/StarTrekDiscoverySentimentAnalysis_17031176372700/Dashboard1) | A sentiment score for every line of dialogue in Season 1, plotted per episode with the episode average, so you can browse the emotional shape of the season line by line |
+| [The Women of Star Trek Discovery](https://public.tableau.com/app/profile/kelly.quantrill/viz/TheWomenofStarTrekDiscovery/Dashboard1) | Share of dialogue spoken by women in each episode of Seasons 1 and 4, per-character figures, and the most-used words. The Bechdel test results come from my own reading of the online transcripts for every episode of Seasons 1–3: 37 of 40 passed, 5 of them only loosely |
+| [Exploring Gendered Patterns in Spanish Hazard Words](https://public.tableau.com/app/profile/kelly.quantrill/viz/ExploringGenderedPatternsinSpanishHazardWords/Suddennessscoreintensitybygender) | Spanish words for hazards scored from 1 (slowest) to 5 (most sudden) and compared by grammatical gender. The slowest hazards were mostly feminine nouns, and the most sudden leaned masculine |
+
 ---
 
 ## MCP servers I work with
