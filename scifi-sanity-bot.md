@@ -39,7 +39,7 @@ There was no language model behind any of this. The generator is grammar and voc
 
 ## Recognition
 
-Sanity featured the bot in [Community Digest #12](https://www.sanity.io/blog/community-digest-12) (20 March 2020), the week it launched, along with a technologist profile of me (as Kelly Quantrill). They also fed one of its tweets into GPT-2 to see how a language model would continue the story. Looking back, that was an early glimpse of where this kind of work was heading.
+Sanity featured the bot in [Community Digest #12](https://www.sanity.io/blog/community-digest-12) (20 March 2020), the week it launched, along with a technologist profile of me. They also fed one of its tweets into GPT-2 to see how a language model would continue the story. Looking back, that was an early glimpse of where this kind of work was heading.
 
 ## Looking back
 
