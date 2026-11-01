@@ -51,8 +51,14 @@ Each project has its own case study. They're written honestly — including what
 | [HubSpot Instance Merger](./amazeeio-hubspot-merger.md) | amazee.io | Delivered | CRM consolidation from Amazee Labs into amazee.io without disrupting live automations |
 | [Documentation Transformation](./amazeeio-documentation.md) | amazee.io | Delivered | Full documentation strategy, platform evaluation, and migration from Confluence + MkDocs to Notion |
 | [Sales Engagement Platform Evaluation](./sales-platform-evaluation.md) | amazee.io | Delivered | 20 prospecting and outreach platforms scored on 8 criteria, then vendor calls, demos and trials, ending in Amplemarket replacing Sales Navigator and Dripify |
-| [Workstream Automations](./workstream-automation-wishlists.md) | amazee.io | Live process | Shared automation wishlists with each team, matched to the right tool: Marketing's 23-item list and a Notion → HubSpot event sync that writes the HubSpot ID back to Notion; BizOps' month-end data pulls from four Xero entities, scoped as build vs buy; and BambooHR reporting moved into a private HR dashboard in Notion |
+| [Workstream Automations](./workstream-automation-wishlists.md) | amazee.io | Live process | Shared automation wishlists with each team, matched to the right tool: Marketing's 23-item list and a Notion → HubSpot event sync that writes the HubSpot ID back to Notion; BizOps' month-end data pulls from four Xero entities, now handled by a script after a build-vs-buy comparison; and BambooHR reporting moved into a private HR dashboard in Notion |
 | [BizDev Notion Overhaul](./bizdev-notion-overhaul.md) | amazee.io | Delivered | Zero-loss restructure of the BizDev workspace into 7 linked Notion databases, with a guarded write path, audit ledger, rollback runbook and a verifier proving nothing was lost |
+
+### Enablement & training
+
+| Project | Built for | Status | What it is |
+|---|---|---|---|
+| [AI Enablement & Training](./ai-enablement.md) | amazee.io, DGXC, Mirantis | Ongoing | A self-serve Agentic Engineering knowledge base with my own recorded walkthroughs, recorded workshops and 1:1 coaching from setup to production; Prompt to Prod, a weekly AI showcase I created and facilitate; and work to open the Mirantis AI Team weekly to newcomers and women |
 
 ### Data visualisation (earlier work)
 
@@ -93,7 +99,7 @@ My approach combines systems analysis with agentic development. I use AI — pri
 
 The speed this enables is real: a functioning dashboard in a week, an MVP in a weekend. That's not about cutting corners — it's about having a clear model of the problem before writing any code, and not getting in your own way once you do.
 
-I'm also currently running agentic engineering workshops at amazee.io, training workstream leads to bring AI into their own teams.
+I also teach this way of working. At amazee.io I built an Agentic Engineering knowledge base and starter kit and run recorded workshops and 1:1s for workstream leads; for DGXC I created and facilitate Prompt to Prod, a weekly AI showcase. More in [AI Enablement & Training](./ai-enablement.md).
 
 ---
 
