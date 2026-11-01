@@ -23,6 +23,7 @@ Each project has its own case study. They're written honestly — including what
 | [HubSpot Sales Triage Tool](./hubspot-sales-triage-tool.md) | amazee.io | Live | My first vibe-coded project; daily lead prioritisation for the sales team |
 | [HubSpot Growth Dashboard](./hubspot-growth-dashboard.md) | amazee.io | Live | Deal and lead visibility for leadership |
 | [Mammoth Marketing Dashboard](./mammoth-marketing-dashboard.md) | amazee.io | Live | Marketing analytics for PLG and Enterprise: traffic, conversions, ad spend and CRM pipeline from Matomo, GA4/BigQuery, Google Ads and HubSpot, refreshed daily |
+| [amazee.io Marketing Pulse](./marketing-pulse.md) | amazee.io | Live | A Claude dashboard on HubSpot's MCP server: contacts, lifecycle funnel, deal pipeline, email and website performance from 17 live queries, with no ETL, database or hosting |
 | [Marketing / BizDev / Sales Sync Hub](./marketing-sync-hub.md) | amazee.io | Live | Live meeting dashboard replacing static slide decks |
 | [AmpleMarket Team Hub](./amplemarket-team.md) | amazee.io | In progress | Outreach research and workflow hub; Claude works lead lists through AmpleMarket's MCP server, and replies flow into HubSpot |
 | [Customer Slack Pulse Agent](./customer-recaps.md) | amazee.io | Live | Weekly AI-generated digest of all customer Slack channels, written to Notion and synced to HubSpot deals |
@@ -41,7 +42,7 @@ Each project has its own case study. They're written honestly — including what
 
 | Project | Built for | Status | What it is |
 |---|---|---|---|
-| [RevOps Automation](./amazeeio-revops-automation.md) | amazee.io | Live and maintained | n8n workflows and scripts connecting product signups, outbound sequences, events, Drupal.org AI demos and Drupal AI trials into HubSpot, with Slack updates along the way |
+| [RevOps Automation](./amazeeio-revops-automation.md) | amazee.io | Live and maintained | n8n workflows and scripts connecting product signups, outbound sequences, events, Drupal.org AI demos and Drupal AI trials into HubSpot, with Slack updates along the way; plus weekly HubSpot → Notion reporting that feeds Notion charts |
 | [Customer Conversation Insights](./customer-conversation-insights.md) | amazee.io | Delivered; ran on a schedule | Notion AI reads recorded customer meetings on a schedule and sorts them into recurring prospect questions with suggested answers for TAMs and CEMs, and content briefs for Marketing |
 
 ### Systems & operations
@@ -80,7 +81,7 @@ MCP (Model Context Protocol) servers let an AI agent like Claude use a tool dire
 | MCP server | What Claude does with it | Where it shows up |
 |---|---|---|
 | **AmpleMarket** | Reads my lead lists, researches and enriches each lead, writes personalised openers, and finds lookalike companies verified through AmpleMarket's own data | [AmpleMarket Team Hub](./amplemarket-team.md) |
-| **HubSpot** | Searches and queries CRM records and properties, pulls marketing email, content and campaign attribution analytics, and checks the schema before I build anything that writes to it | [HubSpot Sales Triage Tool](./hubspot-sales-triage-tool.md), CRM audits |
+| **HubSpot** | Searches and queries CRM records and properties, pulls marketing email, content and campaign attribution analytics, and checks the schema before I build anything that writes to it. It also powers a live dashboard with no code of its own | [Marketing Pulse](./marketing-pulse.md), [HubSpot Sales Triage Tool](./hubspot-sales-triage-tool.md), CRM audits |
 | **Notion** | Searches, reads, updates and moves pages, and queries databases, so documentation and team hubs stay current without copy-and-paste | [AI Platform Operations Console](./flightdeck.md), workspace and documentation upkeep |
 | **BigQuery** | Queries the Google Analytics 4 export directly while I designed the dashboard's data pipeline | [Mammoth Marketing Dashboard](./mammoth-marketing-dashboard.md) |
 | **An internal deploy agent** | Asks for a deployment in plain words, gets a plan back, and applies it only after I approve | [AI Platform Operations Console](./flightdeck.md) |
@@ -121,7 +122,7 @@ Next.js, React, FastAPI, Prisma, Tailwind CSS, shadcn/ui, Recharts, React Leafle
 PostgreSQL, Supabase, Neon, LanceDB, Sanity
 
 **AI & LLMs**
-Claude (Anthropic), Claude Code scheduled tasks, OpenClaw, custom AI agents, Gemini (Google), Gemma 4 and Qwen 3.5 (open-weight, via Ollama), GPT-4o (OpenAI), OpenRouter, LiteLLM, promptfoo, sentence-transformers, Notion AI, HubSpot Breeze AI, sentiment analysis, retrieval-augmented generation, vector databases
+Claude (Anthropic), Claude Code scheduled tasks, Claude dashboards and artifacts, OpenClaw, custom AI agents, Gemini (Google), Gemma 4 and Qwen 3.5 (open-weight, via Ollama), GPT-4o (OpenAI), OpenRouter, LiteLLM, promptfoo, sentence-transformers, Notion AI, HubSpot Breeze AI, sentiment analysis, retrieval-augmented generation, vector databases
 
 **MCP servers**
 AmpleMarket, HubSpot, Notion, BigQuery, Playwright, shadcn/ui, Next.js DevTools, Claude Docs, and an internal deploy agent

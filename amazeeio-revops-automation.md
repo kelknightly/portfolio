@@ -65,15 +65,22 @@ For events like DrupalCon, attendee data is captured with a badge scanner tool a
 
 The process imports contacts directly against the relevant Marketing Event in HubSpot (not as a general contact import), and includes specific field exclusions for scanner metadata columns that shouldn't pollute the CRM. After import, a bulk edit step sets `Import: Trigger Create Lead` to Yes, which fires a HubSpot workflow that creates a Lead record and moves the contact to lifecycle stage `3 - In Outreach`.
 
-### HubSpot → Notion sync (Node.js scripts)
+### HubSpot → Notion reporting (Node.js scripts and Notion charts)
 
-In the other direction: a set of Node.js scripts I wrote that sync HubSpot data into Notion for the weekly reporting and dashboard work the Sales and RevOps teams run there. Three scripts, each with a specific job:
+In the other direction: Sales and RevOps run their weekly reporting in Notion, so I built a set of Node.js scripts (February–March 2026) that bring the HubSpot numbers to them. They write to Notion databases, and Notion's own chart blocks turn those databases into the charts the team reviews each week.
 
-- `sync-lead-movements.js` — runs weekly (each Monday), populates a Notion database with one row per lead that moved pipeline stage in the last seven days
-- `leads-by-pipeline-stage.js` — reads the Leads Notion page, fetches current deal counts by pipeline stage from HubSpot, and writes them into the relevant Notion database columns
-- `sync-weekly.js` — syncs contact lifecycle stage counts into the main Notion reporting database, used to power bar charts of contacts by stage
+- **Contacts by lifecycle stage.** The script counts every HubSpot contact by lifecycle stage and writes one row per stage. Only the totals reach Notion, never individual contact records, and a Notion bar chart reads the rows. The weekly version writes the current counts into the table's first number column, and the team keeps earlier weeks' columns alongside it in Notion, so the table holds a week-by-week history.
+- **Leads by pipeline stage.** The Leads page in Notion holds one table per pipeline. The script matches each table to its HubSpot pipeline by name, pulls the count at every stage, and writes it into the current calendar week's column.
+- **Lead movements in the last 7 days.** Using HubSpot's property history, the script finds every lead whose pipeline stage changed in the past week. It records the previous and current stage, whether the lead advanced or went backwards, and a link to the record. The table is rebuilt each run, so it always shows exactly the last seven days.
+- **Deal movements in the last 7 days.** The same view for deals, built from HubSpot's "date entered stage" properties.
+- **A weekly deal-changes report.** A markdown report of every deal's stage changes, notes and emails from the past week, with the HTML stripped out so it reads cleanly.
+- **An active-customer sources audit.** A CSV that shows where each active customer's contact record originally came from, used to check attribution.
 
-All three can be run together with `npm run sync:all`, or individually. The repo is at [github.com/kelknightly/hubspot-to-notion](https://github.com/kelknightly/hubspot-to-notion).
+`npm run sync:all` runs the lead movements, pipeline counts and lifecycle counts in order each Monday, and stops if one fails rather than publishing a half-updated report. Each sync either updates existing rows or rebuilds its table from scratch, so re-running one never creates duplicates.
+
+The repository also holds a HubSpot skill file for Claude. It teaches an agent how amazee.io's HubSpot is laid out before it fetches anything: how to tell from someone's wording whether they mean a lead, a contact or a deal (the most common mix-up), how to compare a deal's or lead's history with its current status, how to count contacts, and how to format reports for Slack. The repository is private.
+
+For a live, no-code view of the same CRM, see [Marketing Pulse](./marketing-pulse.md), a Claude dashboard that queries HubSpot directly through its MCP server.
 
 ### Sales-to-marketing AI content pipeline (Zoom Revenue Accelerator + Notion AI)
 
