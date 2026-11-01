@@ -7,8 +7,8 @@
 | **Built for** | amazee.io |
 | **Ongoing since** | 2024 |
 | **Status** | Live and actively maintained |
-| **Team** | Solo build; operates across Sales, Marketing, and RevOps functions |
-| **Stack** | n8n, HubSpot, Node.js, GitHub Actions, Notion, Google Sheets, Slack |
+| **Team** | Solo build (the trial export Action built with the Head of Product); operates across Sales, Marketing, and RevOps functions |
+| **Stack** | n8n, HubSpot, Node.js, TypeScript, GitHub Actions, LiteLLM, Polydock webhooks, Redis, Notion, Google Sheets, Slack |
 
 ---
 
@@ -34,17 +34,30 @@ For contacts that pass the filter, the workflow upserts the contact and then PAT
 
 ### Drupal AI trial users (GitHub Action + n8n → HubSpot)
 
-amazee.ai offers a Drupal AI trial through its dashboard. Trial usage data is aggregated weekly from six LiteLLM regions by a GitHub Action managed by the Head of Product. Every Sunday at 6:00 AM UTC, that data is sent to an n8n workflow via webhook.
+amazee.ai offers a free Drupal AI trial: a Drupal site gets an AI key and 30 days of usage. The trial data lives in the AI gateway, not in a CRM, so sales had no view of who was trying it or how heavily.
 
-The workflow loops through each record, upserts contacts into HubSpot, and syncs a set of AI-trial-specific properties I created: `customer_status` (paying customer, active trial, expired trial, registered user, or dev contributor), `total_spend`, `trial_days_remaining`, `days_in_trial`, and `last_active_date`. A Wait node is included in the loop to respect HubSpot API rate limits during bulk processing. On completion, the workflow posts a summary report to the `#project-amaeeai-matthew` Slack channel.
+A GitHub Action, built with the Head of Product, runs three times a week (Sunday, Tuesday and Friday at 6:00 AM UTC). It queries all six LiteLLM regions, keeps only Drupal AI trial keys (identified by the site hostname in the key alias, with test and anonymous trials excluded), and adds up each team's spend and usage. It then checks each team against the amazee.ai backend to get its status: paying customer, active trial, expired trial, registered user or dev contributor. The result is sorted by spend and posted as a CSV to an n8n webhook, and a dated copy is committed to the repository as a history. By mid-2026 each run carried about 325 trial accounts.
 
-The data is also structured for segmentation — new contacts who came through this pipeline can be filtered in HubSpot by `Inbound Acquisition Subtype: AI Trials`, and all contacts who have ever engaged with the trial can be filtered by `AI Trial - Engaged with Trials: Yes`.
+The n8n workflow reads the CSV and loops through it in batches, with a short wait between calls to stay inside HubSpot's rate limits. For each person it creates or updates the contact, then sets a group of properties I created for AI trials:
 
-### Drupal.org AI Demo contacts (Google Sheets + n8n → HubSpot)
+- attribution: lead source `Inbound - AI Trial Sign Up`, acquisition subtype `AI Trials`, and an "engaged with trials" flag
+- status and engagement: customer status, total spend, days in trial, trial days remaining
+- consent: whether the contact can be sent marketing, copied from HubSpot at the time of import
+- freshness: the date the record was last updated from the trial data
 
-Contacts from the Drupal.org AI Demo program are collected in a Google Sheet. The process for a team member is simple: find a record that amazee.io has claimed, set Column W (`Claimed by amazee.ai`) to "Yes", and the automation handles the rest. Every five minutes, an n8n workflow scans the sheet for any rows where that column is exactly "Yes", processes up to ten at a time, upserts them into HubSpot, and updates the row status to "Yes - Imported" once done.
+When the run finishes, the workflow posts a one-line summary to the project's Slack channel: how many contacts were imported, broken down by region.
 
-After the contact lands in HubSpot, a companion HubSpot workflow kicks in: it sets the marketing opt-in to No by default (these contacts came from Drupal.org and aren't expecting general amazee.io marketing), and for any contact without existing attribution, sets the acquisition type, subtype, and source fields automatically.
+Because the properties are kept up to date on every run, the data can be used for segmentation. Sales can filter new contacts by `Inbound Acquisition Subtype: AI Trials`, find everyone who has ever tried it through `AI Trial - Engaged with Trials: Yes`, and sort by spend or days remaining to see who to call first.
+
+### Drupal.org AI Demo contacts (Polydock + Google Sheets + n8n → HubSpot)
+
+Drupal.org offers AI demo sites, run on amazee.io's Polydock platform. This pipeline has two n8n workflows, with a person deciding what goes into HubSpot in between.
+
+**Registrations, as they happen.** Polydock sends a webhook for every demo event. When a registration changes status, the first workflow adds or updates the person in the *Drupal.org AI Demo Leads* Google Sheet and posts a formatted card to Slack with their name, registration ID and the demo app. When a new demo site starts being set up, the workflow opens a Slack thread for it, and posts each later status change as a reply. Redis stores which thread belongs to which site, so every update for one demo appears in one thread instead of spread across the channel.
+
+**Claiming, then importing.** Not every demo user is amazee.io's lead, so nothing goes to HubSpot automatically. A team member finds a record amazee.io has claimed and sets the `Claimed by amazee.ai` column to "Yes". Every few minutes, the second workflow picks up rows marked "Yes", up to ten at a time. It creates or updates each contact in HubSpot with their name, sets `Signed up for demo from Drupal.org` to true, and marks the row "Yes - Imported" so it's never processed twice.
+
+After the contact lands in HubSpot, a companion HubSpot workflow takes over. It sets marketing opt-in to No by default, because these people signed up on Drupal.org and aren't expecting general amazee.io marketing. For any contact without existing attribution, it fills in the acquisition type, subtype and source.
 
 ### Event badge scanner contacts (Badge Scanner → HubSpot)
 

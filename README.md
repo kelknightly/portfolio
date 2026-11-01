@@ -40,7 +40,7 @@ Each project has its own case study. They're written honestly — including what
 
 | Project | Built for | Status | What it is |
 |---|---|---|---|
-| [RevOps Automation](./amazeeio-revops-automation.md) | amazee.io | Live and maintained | n8n workflows and scripts connecting product signups, outbound sequences, events, and AI trials into HubSpot |
+| [RevOps Automation](./amazeeio-revops-automation.md) | amazee.io | Live and maintained | n8n workflows and scripts connecting product signups, outbound sequences, events, Drupal.org AI demos and Drupal AI trials into HubSpot, with Slack updates along the way |
 | [Customer Conversation Insights](./customer-conversation-insights.md) | amazee.io | Delivered; ran on a schedule | Notion AI reads recorded customer meetings on a schedule and sorts them into recurring prospect questions with suggested answers for TAMs and CEMs, and content briefs for Marketing |
 
 ### Systems & operations
