@@ -32,6 +32,7 @@ Each project has its own case study. They're written honestly — including what
 | [FuelSignal MVP](./fuelsignal-mvp.md) | DGXC | MVP / Lead gen | Fuel procurement intelligence platform |
 | [Urban Resilience Sentinel](./urban-resilience-sentinel.md) | Personal | In progress | Urban data archiving engine |
 | [The Morning Digest](./morning-digest.md) | Personal | Live; printing paused | A two-page morning newspaper of household finances and AI news, written by an open-weight model (Gemma 4) chosen after a hand-checked comparison with Qwen 3.5, built to print at 6am and published by a cloud job every morning |
+| [Sci-Fi Bot (@scifisanity)](./scifi-sanity-bot.md) | Personal | Retired (2020–2021, 2,456 posts) | A pre-AI Twitter bot that wrote sci-fi story seeds from 53 hand-built sentence structures and a 3,834-entry vocabulary in Sanity; featured in Sanity's Community Digest |
 | [Spanish Flashcards](./spanish-flashcards.md) | Personal | Live | Interactive language learning app |
 | [Crisis Storylines — Global Visualiser](./crisis-storylines-global.md) | Personal | Live | Interactive dashboard for exploring 3,158 global disaster events with maps, causal graphs, and AI-generated storylines |
 | [LLM Hazard Response Equity Audit](./llm-hazard-equity-audit.md) | Personal / Research | Complete | Reproducible benchmark measuring whether 8 LLMs give worse emergency guidance to users in low-resource infrastructure contexts — 800 evaluated responses, pre-registered rubric, and a forensic record of judge hallucination caught mid-eval |
@@ -110,8 +111,8 @@ TypeScript, Python, JavaScript / Node.js, HTML, CSS
 **Frameworks & Libraries**
 Next.js, React, FastAPI, Prisma, Tailwind CSS, shadcn/ui, Recharts, React Leaflet, react-force-graph-2d
 
-**Databases**
-PostgreSQL, Supabase, Neon, LanceDB
+**Databases & content backends**
+PostgreSQL, Supabase, Neon, LanceDB, Sanity
 
 **AI & LLMs**
 Claude (Anthropic), Claude Code scheduled tasks, OpenClaw, custom AI agents, Gemini (Google), Gemma 4 and Qwen 3.5 (open-weight, via Ollama), GPT-4o (OpenAI), OpenRouter, LiteLLM, promptfoo, sentence-transformers, Notion AI, HubSpot Breeze AI, sentiment analysis, retrieval-augmented generation, vector databases
