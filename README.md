@@ -36,6 +36,7 @@ Each project has its own case study. They're written honestly — including what
 | [Sci-Fi Bot (@scifisanity)](./scifi-sanity-bot.md) | Personal | Retired (2020–2021, 2,456 posts) | A pre-AI Twitter bot that wrote sci-fi story seeds from 53 hand-built sentence structures and a 3,834-entry vocabulary in Sanity; featured in Sanity's Community Digest |
 | [Spanish Flashcards](./spanish-flashcards.md) | Personal | Live | Interactive language learning app |
 | [Crisis Storylines — Global Visualiser](./crisis-storylines-global.md) | Personal | Live | Interactive dashboard for exploring 3,158 global disaster events with maps, causal graphs, and AI-generated storylines |
+| [Context, Checks, Judgment](./epoch-data-exploration.md) | Personal | Live | A day exploring Epoch AI's public data: 381 graded AI misses sorted by cause, a read-only MCP server over their Data Hub, a Data Insight checker tried on a real benchmark draft, and a changelog of their datasets rebuilt from Internet Archive copies |
 | [LLM Hazard Response Equity Audit](./llm-hazard-equity-audit.md) | Personal / Research | Complete | Reproducible benchmark measuring whether 8 LLMs give worse emergency guidance to users in low-resource infrastructure contexts — 800 evaluated responses, pre-registered rubric, and a forensic record of judge hallucination caught mid-eval |
 
 ### Automation & data pipelines
