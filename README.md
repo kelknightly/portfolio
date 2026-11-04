@@ -19,6 +19,7 @@ Each project has its own case study. They're written honestly — including what
 | Project | Built for | Status | What it is |
 |---|---|---|---|
 | [AI Platform Operations Console](./flightdeck.md) | amazee.io | Live, in active development | Air-traffic-control-style operations console for an AI inference platform on live GPU racks, with an alert "doorman" (rules first, then Jev, a small decision model) that groups alert storms before agents start, evaluated against Claude Haiku and Sonnet |
+| [Canary](./canary/canary.md) | amazee.io | Live; self-healing since Nov 2026 | Workflow health monitor that now fixes what it finds: an AI agent investigates a failing n8n workflow, fixes it within limits enforced in code, proves the fix with a rerun or rolls it back, and reports in Slack. Six models compared on real incidents (Claude Opus 5.5 chosen), an 8-scenario eval suite run weekly, and every run graded in Notion |
 | [Support Relay](./support-relay/support-relay.md) | amazee.io | In active development | AI-powered support dashboard — tickets, customer context, and drafted responses in one place |
 | [HubSpot Sales Triage Tool](./hubspot-sales-triage-tool.md) | amazee.io | Live | My first vibe-coded project; daily lead prioritisation for the sales team |
 | [HubSpot Growth Dashboard](./hubspot-growth-dashboard.md) | amazee.io | Live | Deal and lead visibility for leadership |
@@ -123,7 +124,7 @@ Next.js, React, FastAPI, Prisma, Tailwind CSS, shadcn/ui, Recharts, React Leafle
 PostgreSQL, Supabase, Neon, LanceDB, Sanity
 
 **AI & LLMs**
-Claude (Anthropic), Claude Code scheduled tasks, Claude dashboards and artifacts, OpenClaw, custom AI agents, Gemini (Google), Gemma 4 and Qwen 3.5 (open-weight, via Ollama), GPT-4o (OpenAI), OpenRouter, LiteLLM, promptfoo, sentence-transformers, Notion AI, HubSpot Breeze AI, sentiment analysis, retrieval-augmented generation, vector databases
+Claude (Anthropic), Claude Code scheduled tasks, amazee.ai model gateway, Claude dashboards and artifacts, OpenClaw, custom AI agents, Gemini (Google), Gemma 4 and Qwen 3.5 (open-weight, via Ollama), GPT-4o (OpenAI), OpenRouter, LiteLLM, promptfoo, sentence-transformers, Notion AI, HubSpot Breeze AI, sentiment analysis, retrieval-augmented generation, vector databases
 
 **MCP servers**
 AmpleMarket, HubSpot, Notion, BigQuery, Playwright, shadcn/ui, Next.js DevTools, Claude Docs, and an internal deploy agent
