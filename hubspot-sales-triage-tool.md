@@ -7,7 +7,7 @@
 | **Built for** | amazee.io |
 | **Timeline** | A couple of months |
 | **Status** | Live and in active use |
-| **Team** | Mostly solo; an engineer helped with API connection improvements |
+| **Team** | Solo |
 | **Stack** | Next.js, TypeScript, Tailwind CSS, shadcn/ui, HubSpot API |
 
 ---
@@ -28,9 +28,11 @@ It's connected directly to HubSpot — contacts flow in from the CRM, decisions 
 
 This was my first ever vibe-coded project, which means it was also my biggest learning experience. I'd never approached building software this way before — describing what I wanted to Claude in natural language and iterating on the output until it worked. Looking back, the approach was right even when the execution was rough around the edges.
 
-I got the tool surprisingly far on my own. The UI, the data display logic, the triage workflow — most of that I built without external help. Where I eventually hit a wall was the HubSpot API connections: auth flows, rate limits, edge cases in the data model. That's when I brought in an engineer, who helped me strengthen those integrations and make the tool production-grade.
+I got the tool surprisingly far in that first pass. The UI, the data display logic, the triage workflow — all of that came together quickly and the team started using it. The hardest part was the HubSpot API connections: auth flows, rate limits, edge cases in the data model. The first version worked, but it was fragile in those places.
 
-That experience changed how I think about collaboration in this kind of work. Knowing what to build solo and when to bring in specialist help is its own skill.
+A few months later, after several more projects and a much better understanding of how to structure these builds, I came back to it. With what I'd learned about the HubSpot data model, error handling and testing, I reworked the integrations, hardened the auth and rate-limit handling, and made the tool properly production-grade.
+
+That revisit changed how I think about this kind of work. Shipping an early version to get real usage, then returning to it with more experience, turned out to be a better path than trying to get everything right the first time.
 
 ## How long it took
 
