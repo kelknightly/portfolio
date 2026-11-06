@@ -8,7 +8,7 @@
 | **Timeline** | ~1 week initial build, ongoing |
 | **Status** | In active development — Phase 1 complete and functional |
 | **Team** | Built on a foundation by another engineer; grown from there with engineering and security team input |
-| **Stack** | Next.js 14, TypeScript, Python 3.11, FastAPI, PostgreSQL, WebSockets, shadcn/ui, TailwindCSS |
+| **Stack** | Next.js 14, TypeScript, Python 3.11, FastAPI, PostgreSQL, pgvector, WebSockets, shadcn/ui, TailwindCSS |
 
 ---
 
@@ -26,9 +26,24 @@ By the time the engineer has read the ticket, there's already an internal analys
 
 The AI powering this is running through amazee.ai's LLM gateway (Claude Sonnet), and the system includes an editable organisational context document that the team can maintain themselves — product terminology, customer tiers, how to handle specific categories of issue — so the AI's responses stay accurate and on-brand over time.
 
+### Sprot, the AI chat assistant
+
+I also designed and built Sprot, an AI chat assistant that sits inside Support Relay. Engineers ask it questions in plain English, such as "why did this customer's bill spike last month?", "is this site's traffic a real problem or bot noise?" or "what's being discussed in this customer's Slack channel?", and it answers from live data rather than from a FAQ.
+
+Sprot runs on Claude Sonnet through the amazee.ai gateway. I wrote the tool-calling loop myself instead of using a framework like LangChain. The model can call 32 tools across Jira Service Management, the customer database, Lagoon (deploy status, build logs, project settings), amazee.io's billing system, OpenSearch traffic logs, Slack (read-only) and a semantic search over our documentation. It chains them together when a question needs it: for example, it works out which billing account owns a set of projects, pulls each project's costs, then sums them up in one answer.
+
+I built in some safeguards from the start:
+
+- The only change Sprot can make in Jira is moving a ticket's status, and it confirms first. It can draft internal notes, but a person reviews and posts them.
+- It reads Slack and never posts there.
+- Onboarding data is only available to the Customer Success team, and that limit is enforced in three places, not just hidden in the interface.
+- It never reveals credentials.
+
+A plain-text reference file holds the billing knowledge Sprot needs, such as what each product code means, so the team can correct it without changing any code.
+
 ## How I built it
 
-This project started from a foundation built by another engineer on the team. I took that foundation and grew it significantly — adding the AI agent layer, the Notion enrichment, the sentiment data feed from CCC, the multi-draft generation system, and the JSM reply capability. I worked closely with both the engineering team (on architecture and API connections) and the security team (on data handling and access controls).
+This project started from a foundation built by another engineer on the team. I took that foundation and grew it significantly — adding the AI agent layer, the Notion enrichment, the sentiment data feed from CCC, the multi-draft generation system, the JSM reply capability, and the Sprot chat assistant. I worked closely with both the engineering team (on architecture and API connections) and the security team (on data handling and access controls).
 
 The AI layer is where most of the interesting technical work lives. The system uses **Retrieval-Augmented Generation (RAG)** to ground the AI's responses in real, current data rather than relying on model knowledge alone. When a ticket comes in, the relevant customer context — account tier, open issues, recent sentiment scores, product usage — is retrieved from the vector store and injected into the prompt alongside the ticket content. This means the AI is reasoning over actual information about this specific customer, not making inferences from general training data.
 
@@ -46,6 +61,6 @@ The first functional version took about a week. The project is ongoing — each 
 
 ## Where it stands now
 
-Phase 1 is complete. The dashboard works end-to-end: tickets appear in real time via webhook, customer context enriches on every ticket open, and the AI panel generates its analysis and draft automatically. The team is actively using it.
+Phase 1 is complete. The dashboard works end-to-end: tickets appear in real time via webhook, customer context enriches on every ticket open, and the AI panel generates its analysis and draft automatically. Sprot is live in production with all of its data sources connected. The team is actively using it.
 
 This is the most technically complex thing I've built so far, and it's the one I'm most proud of. It's also the clearest demonstration of what happens when you combine a deep understanding of the problem (I sat with the support team and watched how they worked) with the ability to move fast in code.
