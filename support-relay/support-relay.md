@@ -24,7 +24,7 @@ Support Relay is a unified support interface that does most of that background w
 
 By the time the engineer has read the ticket, there's already an internal analysis and a customer-ready draft response waiting for them. The internal analysis and the customer-facing draft are kept visually separate and clearly labelled. If the engineer wants another draft option, they can request one without triggering a full re-analysis. When they're ready to reply, they can post directly to JSM from within the dashboard.
 
-The AI powering this is running through amazee.ai's LLM gateway (Claude Sonnet), and the system includes an editable organisational context document that the team can maintain themselves — product terminology, customer tiers, how to handle specific categories of issue — so the AI's responses stay accurate and on-brand over time.
+The AI runs through amazee.ai's LLM gateway, and each job is moving to the model that won it in a November 2026 evaluation (see [Choosing the models](#choosing-the-models)). The system also includes an editable organisational context document that the team can maintain themselves — product terminology, customer tiers, how to handle specific categories of issue — so the AI's responses stay accurate and on-brand over time.
 
 ### Sprot, the AI chat assistant
 
@@ -45,15 +45,36 @@ A plain-text reference file holds the billing knowledge Sprot needs, such as wha
 
 This project started from a foundation built by another engineer on the team. I took that foundation and grew it significantly — adding the AI agent layer, the Notion enrichment, the sentiment data feed from CCC, the multi-draft generation system, the JSM reply capability, and the Sprot chat assistant. I worked closely with both the engineering team (on architecture and API connections) and the security team (on data handling and access controls).
 
-The AI layer is where most of the interesting technical work lives. The system uses **Retrieval-Augmented Generation (RAG)** to ground the AI's responses in real, current data rather than relying on model knowledge alone. When a ticket comes in, the relevant customer context — account tier, open issues, recent sentiment scores, product usage — is retrieved from the vector store and injected into the prompt alongside the ticket content. This means the AI is reasoning over actual information about this specific customer, not making inferences from general training data.
+The AI layer is where most of the interesting technical work lives. The system uses **Retrieval-Augmented Generation (RAG)** to ground the AI's responses in real, current data rather than relying on model knowledge alone. When a ticket comes in, the ticket's own customer context — account tier, recent sentiment, products in use — is looked up directly and added to the prompt, along with the most relevant excerpts from the documentation. This means the AI is reasoning over actual information about this specific customer, and can cite the documents it relied on.
 
-The vector database stores embedded representations of the organisational context document, customer records, and historical ticket patterns. When a ticket arrives, a similarity search runs against these embeddings to surface the most relevant chunks — which is more reliable than stuffing the entire knowledge base into every prompt, and keeps latency low. The indexing pipeline keeps the vector store current as the context document is updated by the team: changes are chunked, re-embedded, and written back to the index automatically, so the AI's knowledge doesn't go stale without anyone noticing.
+The vector database stores embedded versions of the public documentation and past tickets. When a ticket arrives, a similarity search surfaces the most relevant chunks, with a minimum similarity so that weak matches are dropped — more reliable than stuffing the entire knowledge base into every prompt. Scheduled jobs keep the index current. The evaluation below caught a problem here: customer profiles shared that index, so one ticket picked up another customer's profile. Ticket searches are being restricted to public documentation, with tests that fail if any search doesn't name its sources.
 
-Multi-agent orchestration handles the separation between the internal analysis (what's actually going on here, what's the risk level, what do we know about this customer) and the customer-facing draft (what we say externally). These run as distinct agents with different system prompts and different output constraints, rather than asking a single prompt to do both jobs at once. Keeping them separate produces better outputs from each and makes it easier to tune one without breaking the other.
+The internal analysis (what's actually going on here, what's the risk level, what do we know about this customer) and the customer-facing draft (what we say externally) are generated together from one model call with separate output rules, then kept visually separate in the interface. The draft has its own constraints: plain text, no internal details, and the team's voice and tone rules. I tested splitting them into two calls, and the result is in the section below.
 
 Getting this to work reliably required careful prompt engineering, a well-structured indexing strategy, and iterative testing with the support team on real tickets. The editable organisational context document was important here too: giving the team ownership of what the AI knows means the system stays accurate as the product and processes evolve, without needing engineering intervention every time something changes.
 
 My role throughout has been half product owner, half engineer: I decide what gets built, I build most of it, and I work with the team when I hit the edges of what vibe coding can do alone.
+
+## Choosing the models
+
+Everything first ran on one model, Claude Sonnet 4.5. In November 2026 I tested whether that was still right, running the real production prompts against 13 models for sentiment and 9 for the analysis and draft, all through the same private gateway with customer details replaced by placeholders. The whole thing took a day and cost about 26 USD.
+
+I labelled 249 customer comments blind myself and rated 157 analysis-and-draft outputs on a page that hid which model wrote what. Claude Opus 5.5 judged 297 outputs across 50 tickets, and Kimi K3, from a different model family, re-checked 98 of them. I'm not a support engineer, so my ratings mostly reflect structure and tone: of 51 drafts the judge flagged as wrong or unsafe, I would have sent 36. A person reviewing for polish and a judge checking correctness catch different failures.
+
+Support Relay is being updated so that each job calls a different model:
+
+| Job | Was | Moving to | Why |
+|---|---|---|---|
+| Sentiment on every comment | Claude Sonnet 4.5 | **Gemma 4 31B** (open-weight), with a revised prompt | As accurate, about 30× cheaper (43 USD down to 1.45 USD per 10,000 comments), and on the same cloud provider |
+| Internal analysis and customer draft | Claude Sonnet 4.5 | **Claude Sonnet 5.5**, with the token limit raised to 4,000 and the system prompt cached | 88% of drafts sendable against 48%, and internal details leaked in 0% of drafts against 15% |
+
+Sprot and traffic analysis weren't part of this evaluation and stay on Claude Sonnet 4.5.
+
+**The sentiment problem was the categories, not the model.** The old model matched a human label 44% of the time, and its at-risk flags were right about one time in four. Every model had the same problem. The ten categories mixed how a customer sounds with what is happening to them, so a calm "we're cancelling" had to be either neutral or churn risk. The revised prompt asks for a tone plus three yes-or-no flags: blocking, escalation and churn. On 100 fresh comments, tone accuracy with the same model rose from 38% to 64%.
+
+**Cheaper options.** Splitting the work so Claude Haiku 5.5 writes the analysis and Sonnet 5.5 writes the draft costs about a third as much, with 82% of drafts sendable. Haiku 5.5 alone is 17× cheaper, with 70% sendable. Caching the 7,000-token system prompt cuts the cost of the analysis call by nearly a quarter.
+
+The limits: one non-specialist human reviewer, 50 tickets for the shortlisted models and 20 for the rest, and no support engineer has checked the AI judges, because the tool has been quiet during a company merger.
 
 ## How long it took
 
