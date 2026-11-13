@@ -8,7 +8,7 @@
 | **Timeline** | November 2026 |
 | **Status** | Live on my machine. The collectors run as background services; the extension is a first version |
 | **Team** | Solo, built with Claude Code |
-| **Stack** | ClickHouse, Node.js (no dependencies), a VS Code webview extension with no build step, systemd user services, OpenAI-compatible model gateways, Claude Haiku 5.5 for the chat |
+| **Stack** | ClickHouse, Node.js (no dependencies), a VS Code webview extension with no build step, systemd user services, OpenAI-compatible model gateways, Claude Sonnet 5.5 for the chat |
 
 ![The Atlas map: the agent in the centre, with lines to the model, files, shell, web and subagents](./screenshots/Atlas%20-%20Map.png)
 
@@ -98,7 +98,9 @@ Pull request cost had a second problem. A call counted toward the next pull requ
 
 ![The Chat tab: a question, the table that answers it, and a follow-up](./screenshots/Atlas%20-%20Chat.png)
 
-The Chat tab takes a question in plain words. Claude Haiku 5.5 writes one SQL query, ClickHouse runs it, and the result is shown as a table. An answer takes two to four seconds.
+The Chat tab takes a question in plain words. Claude Sonnet 5.5 writes one SQL query, ClickHouse runs it, and the result is shown as a table. An answer takes two to four seconds.
+
+I picked the model with a small eval: 30 questions with known answers, asked twice of each model against the masked data. Sonnet 5.5 got all 30 right. Haiku 5.5 missed one with thinking on or off, and without thinking two of its queries failed in ClickHouse and had to be retried. Sonnet also wrote about half as many tokens per answer as Haiku with thinking on, so the bigger model was not the more expensive one here.
 
 The model only writes the query. It never sees the results, and the query runs as a read-only login that follows "View as", so an auditor asking the same question gets only its own rows. Safety does not depend on the model behaving: asked to drop a table, ClickHouse refuses, and the refusal shows up on the Controls page.
 
